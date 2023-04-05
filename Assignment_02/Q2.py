@@ -23,15 +23,20 @@ with open(filename, 'r') as f:
     num_matches = 0
     num_partial_matches = []
     matchList = []
+    totalList = []
     for i in range(len(string_to_match)):
         matchList.append(0)
+        totalList.append(0)
     print(matchList)
     for i in range(len(subStringList)):
         searchString = subStringList[i]
         print('Searching %s' %searchString)
+        k = 0
         for j in range(len(file_contents) - len(subStringList[i]) + 1):
             currentString = file_contents[j:j + len(subStringList[i])]
             print(currentString)
+            k += 1
+            totalList[len(subStringList[i])-1] += 1
             if currentString == searchString:
                 if matchList[len(searchString)-1] == 0:
                     num_matches = 0
@@ -41,6 +46,12 @@ with open(filename, 'r') as f:
 
 print('Number of matches: ')
 print(matchList)
+print(totalList)
 
+accuracy = []
 for i in range(len(matchList)):
-    print('%d character match found in %d places' % (i+1, matchList[i]))
+    accuracy.append((matchList[i]/totalList[i]) * 100)
+    print('%d character match found in %d places with occurance probability of %.2f%%' % (i+1, matchList[i], accuracy[i]))
+    
+
+print(accuracy)
