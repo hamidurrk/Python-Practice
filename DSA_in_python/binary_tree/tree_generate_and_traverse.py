@@ -76,5 +76,4 @@ def build_tree():
 
     root.print_tree()
 
-
 build_tree()

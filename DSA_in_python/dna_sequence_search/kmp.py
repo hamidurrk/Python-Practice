@@ -47,6 +47,6 @@ def search_dna_sequence(filename, pattern):
         print("Pattern not found.")
 
 filename = "dog.txt"
-pattern = "AGTACG"
+pattern = "ATGCC"
 
 search_dna_sequence(filename, pattern)
