@@ -80,14 +80,19 @@ if n < len(file_names):
 else:
     print("The specified file index doesn't exist.")
 
+print("Creating repo instance")
 repo = Repo(repo_path)
 
+print("Staging...")
 repo.index.add([file_path])
 
+print("Commiting the changes...")
 message = random.choice(commit_messages)
+print(f"Commit message is: {commit_messages}")
 
 repo.index.commit(message)
 
 origin = repo.remote('origin')
 
 origin.push()
+print("Pushed successfully.")
