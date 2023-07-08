@@ -66,7 +66,7 @@ file_names = os.listdir(leet)
 
 with open('leetcode\\tracker.txt', 'r') as file:
     n = int(file.read())
-    print(n)
+    #print(n)
 
 if n < len(file_names):
     source_file = os.path.join(leet, file_names[n])
