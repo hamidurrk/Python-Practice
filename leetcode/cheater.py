@@ -5,7 +5,7 @@ local_path = 'C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice'
 
 file_path = 'C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice\\leetcode'
 
-with open('hello.txt', 'w') as file:
+with open('leetcode\\hello.txt', 'w') as file:
     file.write('New content')
 
 repo = Repo(local_path)
