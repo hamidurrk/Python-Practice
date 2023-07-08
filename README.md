@@ -1,4 +1,4 @@
-# Python-Practice (Assignments mainly)
+# Python-Practice (Assignments & Leetcodes)
 
 ## Q1.py (Question 1)
 ### Description:
