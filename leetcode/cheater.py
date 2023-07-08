@@ -88,7 +88,7 @@ repo.index.add([file_path])
 
 print("Commiting the changes...")
 message = random.choice(commit_messages)
-print(f"Commit message is: {commit_messages}")
+print(f"Commit message is: {message}")
 
 repo.index.commit(message)
 
