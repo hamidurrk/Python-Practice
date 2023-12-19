@@ -66,16 +66,22 @@ file_names = os.listdir(leet)
 
 with open('leetcode\\tracker.txt', 'r') as file:
     n = int(file.read())
-    #print(n)
+    print(n)
 
 if n < len(file_names):
     source_file = os.path.join(leet, file_names[n])
     destination_file = os.path.join(file_path, file_names[n])
-    shutil.copy(source_file, destination_file)
-    
-    n+=1
-    with open('leetcode\\tracker.txt', 'w') as file:
-        file.write(str(n))
+
+    print(f"Source File: {source_file}")
+    print(f"Destination File: {destination_file}")
+
+    try:
+        shutil.copy(source_file, destination_file)
+        n += 1
+        with open('leetcode\\tracker.txt', 'w') as file:
+            file.write(str(n))
+    except Exception as e:
+        print(f"Error copying file: {e}")
 
 else:
     print("The specified file index doesn't exist.")
