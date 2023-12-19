@@ -77,7 +77,7 @@ if n < len(file_names):
 
     try:
         n+=1
-        with open('leetcode\\tracker.txt', 'w') as file:
+        with open('C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice\\leetcode\\tracker.txt', 'w') as file:
             file.write(str(n))
         shutil.copy(source_file, destination_file)
     except Exception as e:
