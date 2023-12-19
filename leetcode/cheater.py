@@ -4,9 +4,9 @@ import os
 import random
 
 repo_url = 'https://github.com/hamidurrk/Python-Practice.githttps://github.com/hamidurrk/Python-Practice.git'
+
 repo_path = 'C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice'
 file_path = 'C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice\\leetcode'
-
 leet = 'C:\\Users\\hamid\\OneDrive\\Documents\\leet_python'
 
 commit_messages = [
@@ -76,10 +76,10 @@ if n < len(file_names):
     print(f"Destination File: {destination_file}")
 
     try:
-        shutil.copy(source_file, destination_file)
-        n += 1
+        n+=1
         with open('leetcode\\tracker.txt', 'w') as file:
             file.write(str(n))
+        shutil.copy(source_file, destination_file)
     except Exception as e:
         print(f"Error copying file: {e}")
 
