@@ -5,9 +5,9 @@ import random
 
 repo_url = 'https://github.com/hamidurrk/Python-Practice.githttps://github.com/hamidurrk/Python-Practice.git'
 
-repo_path = 'C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice'
-file_path = 'C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice\\leetcode'
-leet = 'C:\\Users\\hamid\\OneDrive\\Documents\\leet_python'
+repo_path = 'C:\\Users\\hamid\\Documents\\Python-Practice'
+file_path = 'C:\\Users\\hamid\\Documents\\Python-Practice\\leetcode'
+leet = 'C:\\Users\\hamid\\Documents\\leet_python'
 
 commit_messages = [
     "Solve problem using a brute force approach",
