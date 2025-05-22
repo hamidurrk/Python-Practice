@@ -2,6 +2,7 @@ from git import Repo
 import shutil
 import os
 import random
+from datetime import datetime, timedelta
 
 repo_url = 'https://github.com/hamidurrk/Python-Practice.githttps://github.com/hamidurrk/Python-Practice.git'
 
@@ -66,39 +67,53 @@ file_names = os.listdir(leet)
 
 with open('leetcode\\tracker.txt', 'r') as file:
     n = int(file.read())
-    print(n)
+    print(f"Starting from file index: {n}")
 
-if n < len(file_names):
-    source_file = os.path.join(leet, file_names[n])
-    destination_file = os.path.join(file_path, file_names[n])
-
-    print(f"Source File: {source_file}")
-    print(f"Destination File: {destination_file}")
-
-    try:
-        n+=1
-        with open('C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice\\leetcode\\tracker.txt', 'w') as file:
-            file.write(str(n))
-        shutil.copy(source_file, destination_file)
-    except Exception as e:
-        print(f"Error copying file: {e}")
-
-else:
-    print("The specified file index doesn't exist.")
-
-print("Creating repo instance")
 repo = Repo(repo_path)
 
-print("Staging...")
-repo.index.add([file_path])
+start_date = datetime(2025, 5, 8)
+end_date = datetime(2025, 5, 20)
+current_date = start_date
 
-print("Commiting the changes...")
-message = random.choice(commit_messages)
-print(f"Commit message is: {message}")
+while current_date <= end_date and n < len(file_names):
+    commits_today = random.randint(1, 2)
+    for _ in range(commits_today):
+        if n >= len(file_names):
+            break
+        source_file = os.path.join(leet, file_names[n])
+        destination_file = os.path.join(file_path, file_names[n])
 
-repo.index.commit(message)
+        print(f"Copying {source_file} to {destination_file}")
+        try:
+            shutil.copy(source_file, destination_file)
+            n += 1
+            with open('C:\\Users\\hamid\\OneDrive\\Documents\\Python-Practice\\leetcode\\tracker.txt', 'w') as file:
+                file.write(str(n))
+        except Exception as e:
+            print(f"Error copying file: {e}")
+            continue
+
+        print("Staging...")
+        repo.index.add([destination_file])
+
+        message = random.choice(commit_messages)
+        print(f"Committing with message: {message}")
+
+        hour = random.randint(10, 18)
+        minute = random.randint(0, 59)
+        second = random.randint(0, 59)
+        commit_time = current_date.replace(hour=hour, minute=minute, second=second)
+        commit_time_str = commit_time.strftime('%Y-%m-%dT%H:%M:%S')
+
+        repo.index.commit(
+            message,
+            author_date=commit_time_str,
+            commit_date=commit_time_str
+        )
+        print(f"Committed on {commit_time_str}")
+
+    current_date += timedelta(days=1)
 
 origin = repo.remote('origin')
-
 origin.push()
 print("Pushed successfully.")
